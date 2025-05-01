@@ -22,7 +22,7 @@ fi
  
 free -m | awk 'NR==2{printf "Current Memory Usage:       %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
 free -m | awk 'NR==2{printf "Available Memory:           %s/%sMB (%.2f%%)\n", $7,$2,$7*100/$2 }'
-free -m | awk 'NR==3{printf "Current Swap Usage:         %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
+free -m | awk 'NR==3 {if ($2 > 0) {printf "Current Swap Usage:          %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2} else {printf "Current Swap Usage:         0/0MB (0.00%%)\n"}}'
 free -m | awk 'NR==2{printf "Current buffer/cache Usage: %s/%sMB (%.2f%%)\n", $6,$3,$6*100/$3 }'
  
 # This df command will show disk usage of the root (/) partition
