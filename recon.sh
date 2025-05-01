@@ -35,6 +35,8 @@ for iface in $interfaces; do
         ip_address=$(ip addr show $iface | awk '/inet / {print $2}')
         echo -e "Interface $iface - IP Address: $ip_address"
 done
+echo -e "\nRoutes:"
+ip route show
 
 echo -e "$SPACER"
 echo -e "Storage:"
@@ -47,4 +49,3 @@ df -h
 echo -e "$SPACER\nlsblk output:"
 lsblk
 echo -e "$SPACER"
-
