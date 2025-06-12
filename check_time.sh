@@ -18,7 +18,7 @@
 # Define variables
 DEBUG=false # set to true for std output
 LOG_TAG="time-sync-check"
-EMAIL_RECIPIENT="chris.lamitie@consolidatedtrading.com"
+EMAIL_RECIPIENT="email@example.com"
 HOSTNAME=$(hostname)
 OFFSET_THRESHOLD_MS=50
 EMAIL_TRIGGERED=false
