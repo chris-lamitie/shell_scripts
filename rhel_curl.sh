@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source of this script: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_8_installation/downloading-beta-installation-images_installing-rhel#downloading-an-iso-image-with-curl_downloading-beta-installation-images
-# you ma need to get your own offline token and checksums.
+# you will need to get your own offline token and checksums.
 # Purpose: to use curl and jq to pull Red Hat isos from redhat.com for later use.
 # Requires: curl and jq installed on the system.
 
