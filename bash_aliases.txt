@@ -1,0 +1,28 @@
+Handy aliases and commands for ~/.bashrc
+========================================
+alias genpass='tr -dc A-Za-z0-9 </dev/urandom | head -c 16; echo'
+
+alias ports='sudo ss -tulnap | column -t'
+
+alias getgroups='cat /etc/group | awk -F: "{print \$3\" \"\$1\" \"\$4}" | sort -n'
+
+alias getusers='cat /etc/passwd | awk -F: "{print \$3\" \"\$1}" | sort -n'
+
+alias getips='ip -j addr | jq -r '\''.[] | "\(.ifname): MAC=\(.address // "N/A") IP=\([.addr_info[]? | select(.family=="inet") | .local] | join(", "))"'\'' | sort'
+
+alias getroutes='ip route | awk '\''{dev=""; for(i=1;i<=NF;i++) if($i=="dev") dev=$(i+1); print dev, $0}'\'' | column -t | sort -k1,1 -k2,2V'
+
+stripcom() {
+    case "$1" in
+        ""|-h|--help)
+            echo "Usage: stripcom <file>"
+            echo "Strips comment lines (starting with #) and blank lines from a file."
+            return 0
+            ;;
+    esac
+    if [ ! -f "$1" ]; then
+        echo "stripcom: '$1' not found" >&2
+        return 1
+    fi
+    grep -v '^#' "$1" | awk /./
+}
