@@ -1,4 +1,6 @@
 #!/bin/bash
+# 'dynamotd.sh' Is a message of the day that dynamically shows system information to a user on login.
+#
 # This script should be placed in /usr/local/bin/dynmotd.sh
 # Then add /usr/local/bin/dynmotd.sh to the end of /etc/profile.d/sh.local
 # so the script runs on login and has a pleasant output for the user. 
